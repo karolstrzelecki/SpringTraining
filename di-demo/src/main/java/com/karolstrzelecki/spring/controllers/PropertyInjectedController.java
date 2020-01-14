@@ -1,14 +1,22 @@
 package com.karolstrzelecki.spring.controllers;
 
+import com.karolstrzelecki.spring.services.GreetingService;
 import com.karolstrzelecki.spring.services.GreetingServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
 
+
+@Controller
 public class PropertyInjectedController {
 
-    public GreetingServiceImpl greetingService;
+    @Autowired
+    @Qualifier("greetingServiceImpl")
+    public GreetingService greetingServiceImpl;
 
-    String sayHello(){
+    public String sayHello(){
 
-        return greetingService.sayGreeting();
+        return greetingServiceImpl.sayGreeting();
 
     }
 

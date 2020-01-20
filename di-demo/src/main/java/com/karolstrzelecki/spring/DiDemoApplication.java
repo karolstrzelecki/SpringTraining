@@ -9,6 +9,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
+//Jeżeli znisczymy strukturę plików (przerzucimy paczkę z np kontrolerami), Spring sam z siebie się zagubi
+// i zacznie sypać błędami, jednak możemy temu zaradzić przez annotację @ComponentScan
+//przykład
+//@ComponentScan(basePackages = {"karol.services", "guru.springframework"})
+// w basePackages podajemy tablicę z opcjonalnymi ścieżkami
 public class DiDemoApplication {
 
     public static void main(String[] args) {

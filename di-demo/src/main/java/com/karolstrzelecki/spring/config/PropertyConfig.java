@@ -12,16 +12,14 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
 
 @Configuration
-//@PropertySource({"classpath:datasource.properties", "classpath:jms.properties"})
-@PropertySources({
-        @PropertySource("classpath:datasource.properties"),
-        @PropertySource("classpath:jms.properties")
-})
+
+// @Properties will be now provided by SpringBoot application.properties
+// We wouldn't need Autowired Envirioment too
+// We wouldn't also need @Bean with properties placeholder
 public class PropertyConfig {
 
 
-    @Autowired
-    Environment env;
+
 
     @Value("${guru.username}")
     String user;
@@ -40,7 +38,7 @@ public class PropertyConfig {
     @Bean
     public FakeDataSource fakeDataSource(){
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUser(env.getProperty("USERNAME"));
+        fakeDataSource.setUser(user);
         fakeDataSource.setPassword(password);
         fakeDataSource.setUrl(url);
 
@@ -61,12 +59,6 @@ public class PropertyConfig {
 
 
 
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer properties(){
 
-        PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
-
-        return propertySourcesPlaceholderConfigurer;
-    }
 
 }

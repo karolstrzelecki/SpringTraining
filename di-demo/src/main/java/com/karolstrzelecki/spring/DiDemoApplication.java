@@ -35,4 +35,7 @@ public class DiDemoApplication {
 
     }
 
+    //YAML - shortcut: Yet Another Markup Language, but it is much more suited towards describing data structures
+    // than being actual markup language
+
 }

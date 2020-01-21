@@ -2,23 +2,17 @@ package com.karolstrzelecki.spring.config;
 
 import com.karolstrzelecki.spring.examplebeans.FakeDataSource;
 import com.karolstrzelecki.spring.examplebeans.FakeJmsBroker;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.core.env.Environment;
 
 @Configuration
 
 // @Properties will be now provided by SpringBoot application.properties
 // We wouldn't need Autowired Envirioment too
 // We wouldn't also need @Bean with properties placeholder
+
 public class PropertyConfig {
-
-
 
 
     @Value("${guru.username}")
